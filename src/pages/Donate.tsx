@@ -17,6 +17,7 @@ const Donate = () => {
     message: "",
   });
   const [transactionRef, setTransactionRef] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const predefinedAmounts = [
     { value: "25", label: "$25", description: "School supplies for 1 child" },
@@ -57,6 +58,7 @@ const Donate = () => {
     }
 
     try {
+      setLoading(true); // Start loader
       const res = await fetch("/.netlify/functions/init-transaction", {
         method: "POST",
         body: JSON.stringify({
@@ -80,9 +82,10 @@ const Donate = () => {
         description: err.message,
         variant: "destructive",
       });
+    } finally {
+      setLoading(false); // Stop loader
     }
   };
-
 
   const impacts = [
     {
@@ -219,10 +222,23 @@ const Donate = () => {
                     </div>
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Continue to Payment
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
+                    className="w-full flex justify-center items-center gap-2"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        {/* Tailwind spinner */}
+                        <div className="h-5 w-5 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Processing...
+                      </>
+                    ) : (
+                      "Continue to Payment"
+                    )}
                   </Button>
-
                   {transactionRef && (
                     <PaystackButton
                       publicKey="pk_live_xxxxxxxxxxxxxxxxx"
