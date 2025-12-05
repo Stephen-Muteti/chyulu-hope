@@ -8,6 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* --- Universal Application Colors (your new system) --- */
     --background: 0 0% 100%;
     --foreground: 220 13% 13%;
 
@@ -17,12 +18,10 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 13%;
 
-    /* Warm amber for hope and action */
     --primary: 25 95% 53%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 35 100% 95%;
 
-    /* Deep blue for trust and credibility */
     --secondary: 215 80% 25%;
     --secondary-foreground: 0 0% 100%;
     --secondary-light: 215 80% 96%;
@@ -30,7 +29,6 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Green for growth */
     --accent: 142 70% 45%;
     --accent-foreground: 0 0% 100%;
     --accent-light: 142 70% 96%;
@@ -44,21 +42,28 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Gradients */
+    /* --- Gradients & Shadows --- */
     --gradient-hero: linear-gradient(135deg, hsl(25 95% 53% / 0.95), hsl(215 80% 25% / 0.95));
     --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(35 100% 98%));
     
-    /* Shadows */
     --shadow-sm: 0 2px 4px hsl(220 13% 13% / 0.05);
     --shadow-md: 0 4px 12px hsl(220 13% 13% / 0.08);
     --shadow-lg: 0 10px 30px hsl(220 13% 13% / 0.12);
     --shadow-warm: 0 8px 24px hsl(25 95% 53% / 0.15);
     
-    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* --- Banner Colors (from the first system) --- */
+    --banner-bg-start: 220 20% 10%;
+    --banner-bg-end: 240 15% 15%;
+    --banner-foreground: 45 10% 90%;
+    --banner-accent: 45 90% 55%;
+    --banner-muted: 220 10% 65%;
+    --banner-glow: 45 100% 50%;
   }
 
   .dark {
+    /* keep your dark theme (plus banner) */
     --background: 220 13% 13%;
     --foreground: 0 0% 98%;
 
@@ -89,6 +94,14 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 25%;
     --input: 217.2 32.6% 25%;
     --ring: 25 95% 53%;
+
+    /* --- Banner dark mode colors (optional) --- */
+    --banner-bg-start: 220 30% 5%;
+    --banner-bg-end: 240 20% 10%;
+    --banner-foreground: 45 20% 85%;
+    --banner-accent: 45 90% 60%;
+    --banner-muted: 220 10% 60%;
+    --banner-glow: 45 100% 55%;
   }
 }
 

@@ -1,5 +1,6 @@
 import { Heart, Mail, Phone, MapPin } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import Logo from "@/assets/logo3.png";
 
 const Footer = () => {
   return (
@@ -8,13 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Heart className="h-6 w-6 text-primary" />
-              <h3 className="font-bold text-lg">Chyulu Hope Initiative</h3>
-            </div>
-            <p className="text-secondary-foreground/80 text-sm">
-              Empowering vulnerable children through education and community support.
-            </p>
+            <div className="space-y-4 flex flex-col justify-start">
+            <img src={Logo} alt="RP" className="h-auto w-full" />
+          </div>
           </div>
 
           {/* Quick Links */}
@@ -37,7 +34,10 @@ const Footer = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className="hover:text-primary transition-smooth">
+                <NavLink
+                  to="/contact"
+                  className="hover:text-primary transition-smooth"
+                >
                   Contact
                 </NavLink>
               </li>
@@ -53,7 +53,6 @@ const Footer = () => {
                 <div>
                   <p>+254 714 262 174</p>
                   <p>+254 799 377 805</p>
-                  <p>+254 757 217 830</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
@@ -61,7 +60,6 @@ const Footer = () => {
                 <div className="break-all">
                   <p>joshwambu992@gmail.com</p>
                   <p>danielndiku58@gmail.com</p>
-                  <p>samuelkyalo@gmail.com</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">

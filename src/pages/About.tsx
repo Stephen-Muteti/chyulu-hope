@@ -1,13 +1,13 @@
-import Navigation from "@/components/Navigation";
+import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import { Target, Eye, Goal } from "lucide-react";
 
 const About = () => {
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <TopBar />
       
-      <main className="pt-20">
+      <main className="pt-28">
         {/* Hero Section */}
         <section className="bg-gradient-section py-16">
           <div className="container mx-auto px-4">

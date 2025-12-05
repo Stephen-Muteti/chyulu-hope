@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import { GraduationCap, Apple, Heart, Users, Award, Lightbulb } from "lucide-react";
 import communitySupport from "@/assets/community-support.jpg";
@@ -51,7 +51,7 @@ const Programs = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <TopBar />
       
       <main className="pt-20">
         {/* Hero Section */}

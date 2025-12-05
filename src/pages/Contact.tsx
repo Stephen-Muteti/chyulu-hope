@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <TopBar />
       
       <main className="pt-20">
         {/* Hero Section */}

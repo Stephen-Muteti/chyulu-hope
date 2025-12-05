@@ -1,5 +1,5 @@
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import TopBar from "@/components/TopBar";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Heart, Users, TrendingUp } from "lucide-react";
 import heroEducation from "@/assets/hero-education.jpg";
@@ -33,11 +33,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <TopBar />
       
-      <main>
+      <main className="pt-28">
         {/* Hero Section */}
-        <section className="relative h-[600px] flex items-center justify-center overflow-hidden mt-16">
+        <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-hero z-10" />
           <img
             src={heroEducation}
@@ -168,7 +168,7 @@ const Index = () => {
                 </Button>
               </a>
               <a href="/contact">
-                <Button variant="outline" size="lg" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
+                <Button variant="outline" size="lg" className="text-foreground border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
                   Contact Us
                 </Button>
               </a>

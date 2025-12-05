@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,85 +18,150 @@ export default {
       },
     },
     extend: {
+      /* ----------------------------------------------------------
+       *  COLORS (Original + Banner Colors Merged)
+       * ---------------------------------------------------------- */
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           light: "hsl(var(--primary-light))",
         },
+
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
           light: "hsl(var(--secondary-light))",
         },
+
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
+
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
         },
+
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
+
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        /* -------- BANNER COLORS ADDED SAFELY -------- */
+        banner: {
+          foreground: "hsl(var(--banner-foreground))",
+          accent: "hsl(var(--banner-accent))",
+          muted: "hsl(var(--banner-muted))",
+          glow: "hsl(var(--banner-glow))",
+        },
       },
+
+      /* ----------------------------------------------------------
+       *  BACKGROUND IMAGES (Original + Banner Gradients)
+       * ---------------------------------------------------------- */
       backgroundImage: {
-        'gradient-hero': 'var(--gradient-hero)',
-        'gradient-section': 'var(--gradient-section)',
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-section": "var(--gradient-section)",
+
+        /* NEW banner gradients */
+        "gradient-banner":
+          "linear-gradient(135deg, hsl(var(--banner-bg-start)), hsl(var(--banner-bg-end)))",
+        "gradient-shimmer":
+          "linear-gradient(90deg, transparent, hsl(var(--banner-glow) / 0.1), transparent)",
+        "banner-glow":
+          "radial-gradient(ellipse at center, hsl(var(--banner-glow) / 0.3), transparent 70%)",
       },
+
+      /* ----------------------------------------------------------
+       *  SHADOWS + RADIUS + TRANSITIONS (Original)
+       * ---------------------------------------------------------- */
       boxShadow: {
-        'sm': 'var(--shadow-sm)',
-        'md': 'var(--shadow-md)',
-        'lg': 'var(--shadow-lg)',
-        'warm': 'var(--shadow-warm)',
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        warm: "var(--shadow-warm)",
       },
+
       transitionProperty: {
-        'smooth': 'var(--transition-smooth)',
+        smooth: "var(--transition-smooth)",
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
+      /* ----------------------------------------------------------
+       *  ANIMATIONS (Merged)
+       * ---------------------------------------------------------- */
       keyframes: {
+        /* Original accordion animations */
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+
+        /* NEW BANNER animations merged in */
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.6" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        glow: {
+          "0%, 100%": {
+            textShadow:
+              "0 0 10px hsl(var(--banner-glow) / 0.8), 0 0 20px hsl(var(--banner-glow) / 0.5), 0 0 30px hsl(var(--banner-glow) / 0.3)",
           },
-          to: {
-            height: "0",
+          "50%": {
+            textShadow:
+              "0 0 20px hsl(var(--banner-glow) / 1), 0 0 40px hsl(var(--banner-glow) / 0.7), 0 0 60px hsl(var(--banner-glow) / 0.4)",
           },
         },
+        twinkle: {
+          "0%, 100%": { opacity: "0.4", transform: "scale(0.8)" },
+          "50%": { opacity: "1", transform: "scale(1.1)" },
+        },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+
+        /* NEW BANNER ANIMATIONS */
+        "pulse-slow": "pulse-slow 3s ease-in-out infinite",
+        shimmer: "shimmer 4s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite",
+        twinkle: "twinkle 2s ease-in-out infinite",
       },
     },
   },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
