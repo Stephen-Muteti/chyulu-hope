@@ -79,7 +79,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-secondary-foreground/20 mt-8 pt-8 text-center text-sm text-secondary-foreground/80">
-          <p>&copy; {new Date().getFullYear()} Chyulu Hope Initiative. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Chyulu Hope. All rights reserved.</p>
         </div>
       </div>
     </footer>

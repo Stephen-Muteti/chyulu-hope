@@ -159,7 +159,7 @@ const Index = () => {
               Join Us in Transforming Lives
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-secondary-foreground/90">
-              Your contributions—whether financial, material, or through volunteering—can help us reach more children and provide them with the opportunities they deserve.
+              Your contributions, whether financial, material, or through volunteering—can help us reach more children and provide them with the opportunities they deserve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/donate">
