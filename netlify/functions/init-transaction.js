@@ -12,9 +12,6 @@ export const handler = async (event) => {
       };
     }
 
-    const USD_TO_KES = 130;
-    const amountInKES = Math.round(Number(amount) * USD_TO_KES * 100);
-
     const response = await fetch(
       "https://api.paystack.co/transaction/initialize",
       {
@@ -25,8 +22,8 @@ export const handler = async (event) => {
         },
         body: JSON.stringify({
           email,
-          amount: amountInKES,
-          currency: "KES",
+          amount: amount,
+          currency: "USD",
           callback_url: "https://chyulu-hope.netlify.app/donation-success",
           metadata: { name, message, usd_amount: amount },
         }),
